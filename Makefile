@@ -78,6 +78,9 @@ default: binary
 all: build ## validate all checks, build linux binaries, run all tests\ncross build non-linux binaries and generate archives
 	$(DOCKER_RUN_DOCKER) hack/make.sh
 
+dynbinary: build ## build the linux libraries
+	$(DOCKER_RUN_DOCKER) hack/make.sh dynbinary
+
 binary: build ## build the linux binaries
 	$(DOCKER_RUN_DOCKER) hack/make.sh binary
 

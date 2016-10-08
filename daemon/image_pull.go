@@ -2,6 +2,7 @@ package daemon
 
 import (
 	"io"
+   	"fmt"
 	"strings"
 
 	"github.com/docker/distribution/digest"
@@ -22,6 +23,7 @@ func (daemon *Daemon) PullImage(ctx context.Context, image, tag string, metaHead
 	// compatibility.
 	image = strings.TrimSuffix(image, ":")
 
+        fmt.Printf("Pulling image %s with tag %s\n", image, tag)
 	ref, err := reference.ParseNamed(image)
 	if err != nil {
 		return err
